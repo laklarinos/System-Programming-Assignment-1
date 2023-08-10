@@ -1,0 +1,29 @@
+Some things I considered during today's coding session.
+
+First of all I need to update the person's class methods such as getVirus getVaccinated and getDate
+These functions worked well in previous versions where a citizen was not allowed to have gone down with
+more thank 1 flews. 
+
+This version allows that by creating an array of viruses, an array of vaccinated statements and an array 
+of dates of vaccination. A problem occurs however. By implementing this, it's like I render the skip List useless
+as one of its main functions is to check if a specific citizen has been vaccinated for a specific virus.
+It is not that It is completeley useless as it is possible for the user to ask for all the vaccinated citizens of 
+virus, a case where a skip list is unavoidable but all in all when it comes to asking for a citizen's vaccination
+for a virus, I already save that info in my vaccinatedArray and therefore It looks as if I use render data. 
+
+I certainly have to get rid of this array (vaccinatedArray). I will certainly keep the virus array cause it is 
+the only way I can access every virus that a citizen was mentioned aside.
+
+So, I wanted to implement a method called InsertToBloom and insertToSkipList...
+The idea is that given a person I want to insert him in the respective bloom filter and skip list based
+on the virus he has in his record.
+
+If a citizen does not already exist in my data base, I create him and no worries I just insert him using the above methods
+However, If a citizen already exists and a record specifies that he was vaacced for a new virus...
+i cannot just insert him in bf and sl
+
+I need to update its virusArray the array that contains every virus this citizen has been mentioned next to
+and only after that can i to insert him in BF ans SL.
+
+Maybe one solution would be to get rid of vaccinated but how will I get access to the date... I think It changes
+the whole implementation...
